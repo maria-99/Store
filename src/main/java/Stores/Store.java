@@ -27,22 +27,6 @@ public class Store implements CakeStore, SoapStore, BookStore, Serializable {
         this.name = name;
     }
 
-    @Override
-    public boolean equals(Object anObject) {
-        if (this == anObject) {
-            return true;
-        }
-        if (anObject instanceof Store) {
-            Store aStore = (Store) anObject;
-            if(aStore.name.equals(name)
-                    && aStore.maxSize == maxSize
-                    && aStore.productSet.equals(productSet)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     public int getMaxSize() {
         return maxSize;
     }
@@ -51,40 +35,8 @@ public class Store implements CakeStore, SoapStore, BookStore, Serializable {
         return productSet;
     }
 
-    //добавляет товар в список товаров магазина (если размер !> заданого макса)
-    @Override
-    public void addProduct(Product product) throws StoreFullException {
-        if (productSet.size() < maxSize) {
-            productSet.add(product);
-            productSI.addProduct(product);
-        } else {
-            throw new StoreFullException(maxSize);
-        }
-    }
-
-    //удаляет товары с наличием в названии указанного в параметре текста
-    public void deleteProductsLike(String sample) throws NoSuchProductException {
-        boolean deleted = productSet.removeIf(n -> {
-            boolean b = n.getName().toLowerCase().contains(sample.toLowerCase());
-            if (b) {
-                productSI.deleteProduct(n);
-            }
-            return b;
-        });
-        if (!deleted) {
-            throw new NoSuchProductException(sample);
-        }
-    }
-
-    //возможность удалять товары по предикату товара
-    public void deleteIf(Predicate<Product> predicate) {
-        productSet.removeIf(n -> {
-            boolean b = predicate.test(n);
-            if (b){
-                productSI.deleteProduct(n);
-            }
-            return b;
-        });
+    public ProductSearchIndex getProductSI() {
+        return productSI;
     }
 
     //возвращает сколько товаров есть в магазине

@@ -1,39 +1,53 @@
 import Exceptions.*;
 import Products.*;
+import Services.ProductManagementService;
+import Services.ShoppingService;
 import Stores.Store;
-import Stores.StoreBuilder;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import java.util.Locale;
 
 public class Main {
     public static void main(String[] args) {
-        //проверка правильности работы
-        //Book b1 = new Book("book 1", 25, 3);
-        //Book b2 = new Book("book", 12, 7);
-        Book b3 = new Book("strawberry ice-cream cake recipe", 12, 7);
 
-        Soap s1 = new Soap("strawberry soap", 7, 6);
+        Book b1 = new Book("b1", 12, 7);
+        Soap s1 = new Soap("s1", 7, 6);
+        Cake c1 = new Cake("c1", 9, 8, 7);
+        Cake c2 = new Cake("c2", 4, 4, 2);
+        Cake c3 = new Cake("c3", 16, 2, 5);
 
-        Cake c1 = new Cake("strawberry ice-cream cake", 9, 8, 7);
-        Cake c2 = new Cake("strawberry vanilla cake", 4, 4, 2);
-        Cake c3 = new Cake("chocolate cake", 16, 2, 5);
 
-        Store store = new StoreBuilder().setMaxSize(8).setName("Maria's").build();
+        ApplicationContext context = new ClassPathXmlApplicationContext("config.xml");
+        Store store = context.getBean(Store.class);
+        ProductManagementService productManager = context.getBean(ProductManagementService.class);
+        ShoppingService shoppingService = context.getBean(ShoppingService.class);
+
         try {
-            //store.addProduct(b1);
-            //store.addProduct(b2);
-            store.addProduct(b3);
-            store.addProduct(s1);
-            store.addProduct(c1);
-            store.addProduct(c2);
-            store.addProduct(c3);
+            productManager.addProduct(b1);
+            productManager.addProduct(s1);
+            productManager.addProduct(c1);
+            productManager.addProduct(c2);
+            productManager.addProduct(c3);
         } catch (StoreFullException e) {
             System.out.println(e.getMessage());
         }
 
-        System.out.println("books: " + store.bookProducts());
-        System.out.println("soaps: " + store.soapProducts());
-        System.out.println("cakes: " + store.cakeProducts());
+        System.out.println(
+                context.getMessage(
+                        "storeSet",
+                        new Object[0],
+                        Locale.forLanguageTag("ru-RU")
+                ) + store.getProductSet()
+        );
 
-        System.out.println("Product List: " + store.getProductSet());
-        System.out.println("Products like " + c1 + " are: " + store.findProductsLike(c1));
+        shoppingService.buy(c1);
+        System.out.println(
+                context.getMessage(
+                        "storeSet",
+                        new Object[0],
+                        Locale.forLanguageTag("ru-RU")
+                ) + store.getProductSet()
+        );
     }
 }

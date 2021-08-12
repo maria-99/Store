@@ -26,17 +26,6 @@ public class ProductSearchIndex {
         }
     }
 
-    //Добавьте в класс поискового индекса возможность удалять товары по предикату товара
-    public void deleteIf(Predicate<Product> predicate){
-        Set<String> keywords = new HashSet<>(searchMap.keySet());
-        for (String keyWord: keywords) {
-            searchMap.get(keyWord).removeIf(predicate);
-            if(searchMap.get(keyWord).isEmpty()){
-                searchMap.remove(keyWord);
-            }
-        }
-    }
-
     //возвращает список по ключевому слову, если такого нет возвращает пустой список
     public Set<Product> findAll(String keyWord){
         return searchMap.getOrDefault(keyWord, new HashSet<>());
