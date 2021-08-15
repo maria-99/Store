@@ -1,4 +1,4 @@
-package exceptions;
+package maria.exceptions;
 
 public class IncorrectInputException extends Exception{
 

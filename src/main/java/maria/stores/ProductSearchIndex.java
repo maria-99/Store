@@ -1,11 +1,13 @@
-package stores;
+package maria.stores;
 
-import products.Product;
+import maria.products.Product;
+import org.springframework.stereotype.Component;
 
 import java.util.*;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
+@Component
 public class ProductSearchIndex {
      final Map<String, Set<Product>> searchMap = new HashMap<>();
 

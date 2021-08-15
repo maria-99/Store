@@ -1,13 +1,24 @@
-import exceptions.*;
-import products.*;
-import services.ProductManagementService;
-import services.ShoppingService;
-import stores.Store;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+package maria;
 
+import maria.exceptions.IncorrectInputException;
+import maria.exceptions.StoreFullException;
+import maria.config.MyConfig;
+import maria.products.Book;
+import maria.products.Cake;
+import maria.products.Soap;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Import;
+import maria.services.ProductManagementService;
+import maria.services.ShoppingService;
+import maria.stores.Store;
 import java.util.Locale;
 
+@SpringBootApplication
+@Import(MyConfig.class)
+@ComponentScan({"maria.stores"})
 public class Main {
     public static void main(String[] args) {
 
@@ -18,7 +29,7 @@ public class Main {
         Cake c3 = new Cake("c3", 16, 2, 5);
 
 
-        ApplicationContext context = new ClassPathXmlApplicationContext("config.xml");
+        final ConfigurableApplicationContext context = SpringApplication.run(Main.class);
         Store store = context.getBean(Store.class);
         ProductManagementService productManager = context.getBean(ProductManagementService.class);
         ShoppingService shoppingService = context.getBean(ShoppingService.class);
@@ -49,5 +60,12 @@ public class Main {
                         Locale.forLanguageTag("ru-RU")
                 ) + store.getProductSet()
         );
+
+        //метод который использует связь между Store и ProductSearchIndex для проверки @Autowired
+        try {
+            System.out.println(store.productsLike("*1"));
+        } catch (IncorrectInputException e){
+            System.out.println(e.getMessage());
+        }
     }
 }

@@ -1,4 +1,4 @@
-package products;
+package maria.products;
 
 public interface ProductWithShelfLife {
 

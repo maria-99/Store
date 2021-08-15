@@ -1,4 +1,4 @@
-package exceptions;
+package maria.exceptions;
 
 /*
 Данный класс описывает проверяемое исключение, так как проявление такой ошибке не зависит от программиста;
@@ -9,7 +9,7 @@ package exceptions;
 public class NoSuchProductException extends Exception {
 
     public NoSuchProductException(String sample) {
-        super("No products deleted; zero products like: " + sample);
+        super("No maria.learnup.products deleted; zero maria.learnup.products like: " + sample);
     }
 
 }

@@ -1,6 +1,6 @@
-package stores;
+package maria.stores;
 
-import products.Soap;
+import maria.products.Soap;
 
 import java.util.Set;
 

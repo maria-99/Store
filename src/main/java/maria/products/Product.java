@@ -1,4 +1,4 @@
-package products;
+package maria.products;
 
 import java.io.Serializable;
 

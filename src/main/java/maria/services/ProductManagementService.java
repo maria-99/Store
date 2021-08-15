@@ -1,10 +1,10 @@
-package services;
+package maria.services;
 
-import exceptions.NoSuchProductException;
-import exceptions.StoreFullException;
-import products.Product;
-import stores.ProductSearchIndex;
-import stores.Store;
+import maria.exceptions.NoSuchProductException;
+import maria.exceptions.StoreFullException;
+import maria.products.Product;
+import maria.stores.ProductSearchIndex;
+import maria.stores.Store;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;

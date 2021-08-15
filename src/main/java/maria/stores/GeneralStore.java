@@ -1,4 +1,4 @@
-package stores;
+package maria.stores;
 
 public interface GeneralStore {
 

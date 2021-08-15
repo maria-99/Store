@@ -1,6 +1,6 @@
-package services;
+package maria.services;
 
-import products.Product;
+import maria.products.Product;
 import org.springframework.context.ApplicationEvent;
 
 public class PurchaseEvent extends ApplicationEvent {

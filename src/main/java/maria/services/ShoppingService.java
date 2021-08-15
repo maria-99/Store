@@ -1,7 +1,7 @@
-package services;
+package maria.services;
 
-import products.Product;
-import stores.Store;
+import maria.products.Product;
+import maria.stores.Store;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;

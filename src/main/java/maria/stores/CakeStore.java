@@ -1,6 +1,6 @@
-package stores;
+package maria.stores;
 
-import products.Cake;
+import maria.products.Cake;
 
 import java.util.Set;
 

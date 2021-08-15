@@ -1,14 +1,14 @@
-package products;
+package maria.products;
 
-public class Soap extends Product {
+public class Book extends Product {
     private static final long serialVersionUID = 1L;
 
-    public Soap(String name, int price, int mass) {
+    public Book(String name, int price, int mass) {
         super(name, price, mass);
     }
 
     @Override
     public String getCategory() {
-        return "Soaps";
+        return "Books";
     }
 }

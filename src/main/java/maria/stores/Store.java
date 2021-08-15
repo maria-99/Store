@@ -1,10 +1,11 @@
-package stores;
+package maria.stores;
 
-import exceptions.IncorrectInputException;
-import products.Book;
-import products.Cake;
-import products.Product;
-import products.Soap;
+import maria.exceptions.IncorrectInputException;
+import maria.products.Book;
+import maria.products.Cake;
+import maria.products.Product;
+import maria.products.Soap;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.*;
 import java.util.HashSet;
@@ -15,7 +16,8 @@ public class Store implements CakeStore, SoapStore, BookStore, Serializable {
 
     private static final long serialVersionUID = 1L;
     private Set<Product> productSet = new HashSet<>();
-    private final ProductSearchIndex productSI = new ProductSearchIndex();
+    @Autowired
+    private ProductSearchIndex productSI;
     private int maxSize;
     private String name;
 
