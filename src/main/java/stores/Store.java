@@ -1,18 +1,15 @@
-package Stores;
+package stores;
 
-import Exceptions.IncorrectInputException;
-import Exceptions.NoSuchProductException;
-import Exceptions.StoreFullException;
-import Products.Book;
-import Products.Cake;
-import Products.Product;
-import Products.Soap;
+import exceptions.IncorrectInputException;
+import products.Book;
+import products.Cake;
+import products.Product;
+import products.Soap;
 
 import java.io.*;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.function.Predicate;
 
 public class Store implements CakeStore, SoapStore, BookStore, Serializable {
 

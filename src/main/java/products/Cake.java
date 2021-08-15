@@ -1,4 +1,4 @@
-package Products;
+package products;
 
 public class Cake extends Product implements ProductWithShelfLife {
     private static final long serialVersionUID = 1L;

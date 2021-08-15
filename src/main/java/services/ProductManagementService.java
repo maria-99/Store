@@ -1,10 +1,10 @@
-package Services;
+package services;
 
-import Exceptions.NoSuchProductException;
-import Exceptions.StoreFullException;
-import Products.Product;
-import Stores.ProductSearchIndex;
-import Stores.Store;
+import exceptions.NoSuchProductException;
+import exceptions.StoreFullException;
+import products.Product;
+import stores.ProductSearchIndex;
+import stores.Store;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;

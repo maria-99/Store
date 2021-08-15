@@ -1,6 +1,6 @@
-package Stores;
+package stores;
 
-import Products.Soap;
+import products.Soap;
 
 import java.util.Set;
 

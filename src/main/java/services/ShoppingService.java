@@ -1,13 +1,12 @@
-package Services;
+package services;
 
-import Products.Product;
-import Stores.Store;
+import products.Product;
+import stores.Store;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
 import java.util.Locale;
-import java.util.ResourceBundle;
 
 public class ShoppingService implements ApplicationContextAware {
 

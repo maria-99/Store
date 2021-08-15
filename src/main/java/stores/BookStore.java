@@ -1,6 +1,6 @@
-package Stores;
+package stores;
 
-import Products.Book;
+import products.Book;
 
 import java.util.Set;
 

@@ -1,6 +1,6 @@
-package Stores;
+package stores;
 
-import Products.Product;
+import products.Product;
 
 import java.util.*;
 import java.util.function.Predicate;

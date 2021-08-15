@@ -1,6 +1,6 @@
-package Stores;
+package stores;
 
-import Products.Cake;
+import products.Cake;
 
 import java.util.Set;
 

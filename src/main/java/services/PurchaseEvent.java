@@ -1,6 +1,6 @@
-package Services;
+package services;
 
-import Products.Product;
+import products.Product;
 import org.springframework.context.ApplicationEvent;
 
 public class PurchaseEvent extends ApplicationEvent {

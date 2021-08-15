@@ -1,4 +1,4 @@
-package Products;
+package products;
 
 public class Soap extends Product {
     private static final long serialVersionUID = 1L;

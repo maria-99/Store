@@ -1,8 +1,8 @@
-import Exceptions.*;
-import Products.*;
-import Services.ProductManagementService;
-import Services.ShoppingService;
-import Stores.Store;
+import exceptions.*;
+import products.*;
+import services.ProductManagementService;
+import services.ShoppingService;
+import stores.Store;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
